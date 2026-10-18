@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: exam-metrics-cors-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: ALLOWED_ORIGIN
+        value: https://dash-2ql9iq.example.com
+      - key: EXAM_EMAIL
+        value: 22f2000074@ds.study.iitm.ac.in
